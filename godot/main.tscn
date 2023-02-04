@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://s7u8214jd77"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_bfilr"]
+[ext_resource type="Script" path="res://logger.gd" id="2_kpqs6"]
+
+[node name="level_lobby_a1" type="Node3D"]
+script = ExtResource("1_bfilr")
+
+[node name="logger" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("2_kpqs6")
