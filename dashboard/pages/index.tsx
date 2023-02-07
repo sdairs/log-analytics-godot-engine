@@ -36,7 +36,7 @@ export default function Home() {
             </div>
             <div className="flex flex-col sm:flex-row items-center sm:justify-between gap-4 mt-7 mb-10 w-f">
               <h1 className="font-semibold text-lg leading-6">
-                Log Analytics Starter Kit
+                Godot Game Log Analytics
               </h1>
               <div className="justify-self-end">
                 <DateFilter />

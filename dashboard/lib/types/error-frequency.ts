@@ -1,5 +1,5 @@
 export type ErrorFrequencyQueryData = {
-  function_name: string
+  event_type: string
   hour: string
   total: number
 }

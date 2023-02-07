@@ -17,8 +17,8 @@ async function getFunctionErrors(
     date_to,
   })
 
-  const functionErrors = data.map(({ function_name, total }) => ({
-    name: function_name,
+  const functionErrors = data.map(({ event_type, total }) => ({
+    name: event_type,
     value: total,
   }))
 

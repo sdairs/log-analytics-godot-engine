@@ -15,8 +15,8 @@ async function getTopFunctions(
   })
 
   const topFunctions = data
-    .map(({ function_name, total }) => ({
-      name: function_name,
+    .map(({ event_type, total }) => ({
+      name: event_type,
       value: total,
     }))
     .sort((a, b) => b.value - a.value)

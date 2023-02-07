@@ -12,10 +12,10 @@ export default function BasicStatsContent() {
 
   return (
     <Card>
-      <Title>Basic Stats</Title>
+      <Title>Event Stats</Title>
       <div className="grid grid-cols-2 mt-6 gap-10">
         <div className="col-span-2 lg:col-span-1 flex flex-col gap-6">
-          <Bold>Function Calls</Bold>
+          <Bold>Log Levels</Bold>
 
           {functionCallsStatus === 'loading' ? (
             <Loader />
@@ -29,7 +29,7 @@ export default function BasicStatsContent() {
           )}
         </div>
         <div className="col-span-2 lg:col-span-1 flex flex-col gap-6">
-          <Bold>Top Functions</Bold>
+          <Bold>Most Frequent Events</Bold>
 
           <div className="max-h-96 overflow-y-auto">
             {topFunctionsStatus === 'loading' ? (

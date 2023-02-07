@@ -86,7 +86,7 @@ export default function ErrorStats() {
                 selectedTab !== 'FunctionErrors' && 'sm:hidden'
               )}
             >
-              <Bold>Function Errors</Bold>
+              <Bold>Event Errors</Bold>
 
               <div className="max-h-96 overflow-y-auto">
                 {functionErrorsStatus === 'loading' ? (

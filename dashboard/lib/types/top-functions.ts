@@ -1,5 +1,5 @@
 export type TopFunctionsQueryData = {
-  function_name: string
+  event_type: string
   total: number
 }
 

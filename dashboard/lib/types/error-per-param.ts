@@ -8,11 +8,10 @@ export type ErrorPerParamQueryData = {
 export type ErrorPerParam = { name: string; value: number }[]
 
 const ALL_ERROR_PARAMS = [
-  'osname',
-  'ip_address',
-  'browsername',
-  'country',
-  'referer',
+  'os_name',
+  'os_proc_count',
+  'os_proc_name',
+  'os_video_adapter_driver_name',
 ] as const
 
 type ErrorParamTuple = typeof ALL_ERROR_PARAMS
@@ -28,18 +27,18 @@ export function isErrorParam(
 export const ERROR_PARAM_OPTIONS: { text: string; value: ErrorParamType }[] = [
   {
     text: 'OS',
-    value: 'osname',
+    value: 'os_name',
   },
   {
-    text: 'IP address',
-    value: 'ip_address',
+    text: 'CPU Cores',
+    value: 'os_proc_count',
   },
   {
-    text: 'Browser',
-    value: 'browsername',
+    text: 'CPU Model',
+    value: 'os_proc_name',
   },
   {
-    text: 'Country',
-    value: 'country',
+    text: 'GPU Vendor',
+    value: 'os_video_adapter_driver_name',
   },
 ]
