@@ -3,12 +3,13 @@ extends Node
 @export var mob_scene: PackedScene
 var score
 var logger
+var match_id = Marshalls.utf8_to_base64(str(Time.get_unix_time_from_system())+OS.get_unique_id())
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	logger = self.get_node("/root/Main/logger")
 	if logger:
-		logger.log('INFO', logger.event_types.LOAD_SCENE, {'scene_name': str(self.name)})
+		logger.log(logger.log_levels.INFO, logger.event_types.LOAD_SCENE, {'scene_name': str(self.name)})
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -35,11 +36,15 @@ func _on_mob_timer_timeout():
 	add_child(mob)
 	
 func game_over():
+	if logger:
+		logger.log(logger.log_levels.INFO, logger.event_types.GAME_END, {'match_id': str(match_id), 'score': score})
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	$HUD.show_game_over()
 	
 func new_game():
+	if logger:
+		logger.log(logger.log_levels.INFO, logger.event_types.GAME_START, {'match_id': str(match_id)})
 	get_tree().call_group("mobs", "queue_free")
 	score = 0
 	$Player.start($StartPosition.position)

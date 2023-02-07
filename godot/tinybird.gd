@@ -17,7 +17,6 @@ func _ready():
 	self._send_to_tinybird()
 
 func _send_to_tinybird():
-	print('called send')
 	var tinybird_token = ""
 	if config.has_section('logging'):
 		tinybird_token = config.get_value('logging', 'tinybird_token', '')

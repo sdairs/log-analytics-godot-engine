@@ -5,13 +5,15 @@ var tinybird_client = preload("res://tinybird.gd")
 const event_types = { 
 	'LOAD_SCENE': 'LOAD_SCENE', 
 	'UNLOAD_SCENE': 'UNLOAD_SCENE', 
-	'ATTACH_CHILD': 'ATTACH_CHILD'
+	'ATTACH_CHILD': 'ATTACH_CHILD',
+	'GAME_START': 'GAME_START',
+	'GAME_END': 'GAME_END',
 }
 
 const log_levels = { 
-	'LOAD_SCENE': 'INFO', 
-	'UNLOAD_SCENE': 'WARN', 
-	'ATTACH_CHILD': 'ERROR'
+	'INFO': 'INFO', 
+	'WARN': 'WARN', 
+	'ERROR': 'ERROR'
 }
 
 func _ready():
