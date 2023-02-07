@@ -8,6 +8,9 @@ This is a fork of the [Tinybird Log Analytics Starter Kit](https://github.com/ti
 
 In this case, a game built with the [Godot game engine](https://godotengine.org/).
 
-## Godot game
+## Godot
+
+This demo was built on Godot 4 Beta 17.
 
 The game in this project is simply an implementation of the [Godot 2D Game tutorial](https://docs.godotengine.org/en/latest/getting_started/first_2d_game/index.html#prerequisites) for [Dodge The Creeps](https://github.com/godotengine/godot-demo-projects/tree/master/2d/dodge_the_creeps). Credit to the original authors of the tutorial for all game code & assets.
+
