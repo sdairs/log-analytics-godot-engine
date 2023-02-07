@@ -17,6 +17,7 @@ func _ready():
 	self._send_to_tinybird()
 
 func _send_to_tinybird():
+	print('called send')
 	var tinybird_token = ""
 	if config.has_section('logging'):
 		tinybird_token = config.get_value('logging', 'tinybird_token', '')
@@ -26,7 +27,6 @@ func _send_to_tinybird():
 
 func _handle_response(result, response_code, headers, body):
 	if response_code == 202:
-		pass
+		print('Successfully sent to Tinybird!')
 	else:
-		pass
-	pass
+		print('There was an error sending to Tinybird!')

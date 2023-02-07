@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 var tinybird_client = preload("res://tinybird.gd")
 
