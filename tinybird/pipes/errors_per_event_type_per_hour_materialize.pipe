@@ -1,0 +1,20 @@
+NODE mv
+SQL >
+
+    SELECT
+        event_type,
+        toStartOfHour(os_time) AS hour,
+        countState() AS total
+    FROM logs
+    WHERE log_level = 'ERROR'
+    GROUP BY
+        hour,
+        event_type
+    ORDER BY hour ASC
+
+TYPE materialized
+DATASOURCE errors_per_event_type_per_hour_mv
+ENGINE "AggregatingMergeTree"
+ENGINE_PARTITION_KEY "toYYYYMM(hour)"
+ENGINE_SORTING_KEY "event_type, hour"
+

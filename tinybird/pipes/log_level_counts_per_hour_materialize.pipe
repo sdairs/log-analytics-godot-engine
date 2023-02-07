@@ -2,7 +2,7 @@ NODE mv
 SQL >
 
     SELECT
-        toStartOfHour(event_ts) AS hour,
+        toStartOfHour(os_time) AS hour,
         log_level,
         countState() AS total
     FROM logs
@@ -13,7 +13,5 @@ SQL >
 
 TYPE materialized
 DATASOURCE log_level_counts_per_hour
-ENGINE "AggregatingMergeTree"
-ENGINE_PARTITION_KEY "tuple()"
-ENGINE_SORTING_KEY "hour, log_level"
+
 

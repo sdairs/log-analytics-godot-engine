@@ -1,5 +1,3 @@
-TOKEN app APPEND
-TOKEN app CREATE
 
 SCHEMA >
     `log_level` String `json:$.log_level`,
@@ -15,7 +13,7 @@ SCHEMA >
     `os_proc_count` Int16 `json:$.os_proc_count`,
     `os_proc_name` String `json:$.os_proc_name`,
     `os_thread_caller` Int64 `json:$.os_thread_caller`,
-    `os_time` DateTime64 `json:$.os_time`,
+    `os_time` DateTime64(3) `json:$.os_time`,
     `os_unique_id` String `json:$.os_unique_id`,
     `os_version` String `json:$.os_version`,
     `os_video_adapter_driver_name` String `json:$.os_video_adapter_driver_name`,

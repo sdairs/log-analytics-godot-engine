@@ -1,4 +1,3 @@
-# Data Source created from Pipe 'log_level_counts_per_hour_materialize'
 
 SCHEMA >
     `hour` DateTime,

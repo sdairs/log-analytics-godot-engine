@@ -1,0 +1,10 @@
+# Data Source created from Pipe 'per_event_type_per_hour_materialize'
+
+SCHEMA >
+    `event_type` String,
+    `hour` DateTime,
+    `total` AggregateFunction(count)
+
+ENGINE "AggregatingMergeTree"
+ENGINE_PARTITION_KEY "toYYYYMM(hour)"
+ENGINE_SORTING_KEY "event_type, hour"
