@@ -3,7 +3,7 @@ extends Node
 @export var mob_scene: PackedScene
 var score
 var logger
-var match_id = Marshalls.utf8_to_base64(str(Time.get_unix_time_from_system())+OS.get_unique_id())
+var match_id = _generate_match_id()
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -22,6 +22,8 @@ func _on_start_timer_timeout():
 func _on_score_timer_timeout():
 	score += 1
 	$HUD.update_score(score)
+	if logger:
+		logger.log(logger.log_levels.ERROR, logger.event_types.SCORE_TOO_HIGH, {'match_id': str(match_id), 'score': score})
 
 func _on_mob_timer_timeout():
 	var mob = mob_scene.instantiate()
@@ -35,6 +37,9 @@ func _on_mob_timer_timeout():
 	mob.linear_velocity = velocity.rotated(direction)
 	add_child(mob)
 	
+func _generate_match_id():
+	return Marshalls.utf8_to_base64(str(Time.get_unix_time_from_system())+OS.get_unique_id())
+	
 func game_over():
 	if logger:
 		logger.log(logger.log_levels.INFO, logger.event_types.GAME_END, {'match_id': str(match_id), 'score': score})
@@ -43,8 +48,11 @@ func game_over():
 	$HUD.show_game_over()
 	
 func new_game():
+	match_id = _generate_match_id()
 	if logger:
 		logger.log(logger.log_levels.INFO, logger.event_types.GAME_START, {'match_id': str(match_id)})
+		if Time.get_ticks_msec() > 60000:
+			logger.log(logger.log_levels.WARN, logger.event_types.LONG_SESSION, {'match_id': str(match_id)})
 	get_tree().call_group("mobs", "queue_free")
 	score = 0
 	$Player.start($StartPosition.position)

@@ -8,6 +8,8 @@ const event_types = {
 	'ATTACH_CHILD': 'ATTACH_CHILD',
 	'GAME_START': 'GAME_START',
 	'GAME_END': 'GAME_END',
+	'LONG_SESSION': 'LONG_SESSION',
+	'SCORE_TOO_HIGH': 'SCORE_TOO_HIGH',
 }
 
 const log_levels = { 
