@@ -55,7 +55,7 @@ export default function ErrorStats() {
               onValueChange={setSelectedTab}
             >
               <Tab value="ErrorsFrequency" text="Error Frequency" />
-              <Tab value="FunctionErrors" text="Function Errors" />
+              <Tab value="FunctionErrors" text="Event Errors" />
             </TabList>
           </div>
 
