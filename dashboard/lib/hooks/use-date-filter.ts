@@ -64,7 +64,7 @@ export default function useDateFilter() {
         ? moment(today)
             .subtract(+DateFilter.Yesterday, 'days')
             .format(dateFormat)
-        : moment(today).format(dateFormat)
+        : moment(today).add(1, 'days').format(dateFormat)
 
     return { startDate, endDate }
   }, [lastDays, router.query.start_date, router.query.end_date])
