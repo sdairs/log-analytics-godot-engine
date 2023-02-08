@@ -1,7 +1,7 @@
 import Head from 'next/head'
 
 const { description, imagePath, title, url } = {
-  title: 'Log Analytics Dashboard · Tinybird',
+  title: 'Godot Game Log Analytics · Tinybird',
   description:
     'Log Analytics Starter Kit built with Tinybird and Next.js',
   url: 'https://log-analytics.tinybird.co',
