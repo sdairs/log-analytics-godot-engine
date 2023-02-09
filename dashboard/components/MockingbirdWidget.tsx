@@ -35,7 +35,195 @@ export default function MockingbirdWidget() {
       const parsedLimit = parseInt(limit) || -1
 
       worker.current = createWorker({
-        schema: presetSchemas['Log Analytics Starter Kit'],
+        schema: {
+          "log_level": {
+              "type": "values_weighted",
+              "params": {
+                  "values": [
+                      "INFO",
+                      "WARN",
+                      "ERROR"
+                  ],
+                  "weights": [
+                      84,
+                      13,
+                      3
+                  ]
+              }
+          },
+          "event_type": {
+              "type": "values_weighted",
+              "params": {
+                  "values": [
+                      "LOAD_SCENE",
+                      "GAME_START",
+                      "GAME_END"
+                  ],
+                  "weights": [
+                      98,
+                      1,
+                      1
+                  ]
+              }
+          },
+          "os_distribution": {
+              "type": "values_weighted",
+              "params": {
+                  "values": [
+                      "macOS",
+                      "Windows",
+                      "Linux"
+                  ],
+                  "weights": [
+                      15,
+                      83,
+                      2
+                  ]
+              }
+          },
+          "os_executable_path": {
+              "type": "values",
+              "params": {
+                  "values": [
+                      "/private/var/folders/37/5j3xhf1x78b7g8d6_tzv8y9m0000gn/T/AppTranslocation/790DB75F-19AA-45FA-BBE0-7412E711E65C/d/Godot.app/Contents/MacOS/Godot"
+                  ]
+              }
+          },
+          "os_game_run_time": {
+              "type": "range",
+              "params": {
+                  "min": 100,
+                  "max": 200000
+              }
+          },
+          "os_is_debug": {
+              "type": "values_weighted",
+              "params": {
+                  "values": [
+                      1,
+                      0
+                  ],
+                  "weights": [
+                      85,
+                      15
+                  ]
+              }
+          },
+          "os_language": {
+              "type": "values_weighted",
+              "params": {
+                  "values": [
+                      "en",
+                      "es"
+                  ],
+                  "weights": [
+                      70,
+                      30
+                  ]
+              }
+          },
+          "os_model_name": {
+              "type": "values",
+              "params": {
+                  "values": [
+                      "GenericDevice"
+                  ]
+              }
+          },
+          "os_name": {
+              "type": "values_weighted",
+              "params": {
+                  "values": [
+                      "macOS",
+                      "Windows",
+                      "Linux"
+                  ],
+                  "weights": [
+                      15,
+                      83,
+                      2
+                  ]
+              }
+          },
+          "os_proc_count": {
+              "type": "values_weighted",
+              "params": {
+                  "values": [
+                      4,
+                      6,
+                      8,
+                      12
+                  ],
+                  "weights": [
+                      20,
+                      30,
+                      30,
+                      20
+                  ]
+              }
+          },
+          "os_proc_name": {
+              "type": "values_weighted",
+              "params": {
+                  "values": [
+                      "Apple M1 Pro",
+                      "Apple M1",
+                      "AMD5700x",
+                      "i7 9700K"
+                  ],
+                  "weights": [
+                      5,
+                      5,
+                      45,
+                      45
+                  ]
+              }
+          },
+          "os_thread_caller": {
+              "type": "range",
+              "params": {
+                  "min": 5046947661498600000,
+                  "max": 5046947661498900000
+              }
+          },
+          "os_time": {
+              "type": "timestamp_now"
+          },
+          "os_unique_id": {
+              "type": "uuid"
+          },
+          "os_version": {
+              "type": "intString"
+          },
+          "os_video_adapter_driver_name": {
+              "type": "values_weighted",
+              "params": {
+                  "values": [
+                      "Apple",
+                      "AMD",
+                      "nVidia",
+                      "intel"
+                  ],
+                  "weights": [
+                      5,
+                      40,
+                      40,
+                      15
+                  ]
+              }
+          },
+          "os_video_adapter_driver_version": {
+              "type": "intString"
+          },
+          "event_data": {
+              "type": "values",
+              "params": {
+                  "values": [
+                      "{\"match_id\":\"MTY3NTgwODk1NS44NjQ4NENQUTI0VjlEN04=\"}"
+                  ]
+              }
+          }
+      },
         endpoint,
         datasource: 'logs',
         token,
